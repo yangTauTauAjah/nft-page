@@ -1,7 +1,6 @@
 import React from "react";
 import { Box, Container, Stack, styled } from "@mui/system";
-import { createTheme, ThemeProvider, Button, Link } from "@mui/material";
-import { themeSettings } from "@/theme";
+import { Button, Link } from "@mui/material";
 
 const FlexSpaceBetweenCentered = styled("div")(({ theme }) => ({
   display: "flex",
@@ -10,6 +9,7 @@ const FlexSpaceBetweenCentered = styled("div")(({ theme }) => ({
 }));
 
 const Main = styled(FlexSpaceBetweenCentered)(({ theme }) => ({
+  width: 'auto',
   height: theme.spacing(10),
   paddingInline: theme.spacing(6.2)
 }));
