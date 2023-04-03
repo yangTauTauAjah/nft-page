@@ -7,9 +7,8 @@ const Main = styled("div")({
   flexDirection: 'column',
   justifyContent: 'space-between',
   alignItems: 'center',
-  width: "90%",
+  width: "100%",
   aspectRatio: "12/6",
-  marginInline: "auto",
   background: "rgba(0,0,0,.4)"
 });
 
@@ -48,7 +47,7 @@ function HeroSection() {
       ></div>
       <div></div>
       <Hero>
-        <h1 style={{ textAlign: "center" }}>Collect Your NFTs Here!</h1>
+        <h1 style={{ textAlign: "center", fontSize: 100 }}>Collect Your NFTs Here!</h1>
         <Button>Find your NFT</Button>
       </Hero>
     </Main>
