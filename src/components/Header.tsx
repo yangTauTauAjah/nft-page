@@ -31,9 +31,9 @@ function Header() {
     <Main>
       Test
       <LinkList>
-        <Link sx={{color: 'gray', fontStyle: 'none', cursor: 'default'}}>Auction</Link>
-        <Link sx={{color: 'gray', fontStyle: 'none', cursor: 'default'}}>Community</Link>
-        <Link sx={{color: 'gray', fontStyle: 'none', cursor: 'default'}}>Explore</Link>
+        <Link sx={{color: 'gray', textDecoration: 'none', cursor: 'pointer'}}>Auction</Link>
+        <Link sx={{color: 'gray', textDecoration: 'none', cursor: 'pointer'}}>Community</Link>
+        <Link sx={{color: 'gray', textDecoration: 'none', cursor: 'pointer'}}>Explore</Link>
       </LinkList>
       <Button
         sx={ButtonStyle}
