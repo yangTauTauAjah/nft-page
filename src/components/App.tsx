@@ -5,13 +5,14 @@ import { Box, Container, Stack, styled } from "@mui/system";
 import { createTheme, ThemeProvider } from "@mui/material";
 import { themeSettings } from "@/theme";
 import Header from "./Header";
-import HeroSection from "./HeroSection";
-import Recommendation from "./Recommendation";
+/* import HeroSection from "./HeroSection";
+import Product from "./Product";
+import Categories from "./Categories"; */
+import Footer from "./Footer";
+import Content from "./Content";
 // import "@/styles/App.css";
 
 const Theme = createTheme(themeSettings);
-
-styled;
 
 function App() {
 
@@ -20,8 +21,11 @@ function App() {
   return (
     <ThemeProvider theme={Theme}>
       <Header />
-      <HeroSection />
-      <Recommendation />
+      {/* <HeroSection />
+      <Product />
+      <Categories /> */}
+      <Content />
+      <Footer />
     </ThemeProvider>
   );
 }
