@@ -1,18 +1,16 @@
-import React from "react";
 import { styled } from "@mui/system";
-import { Box, Button, Container, Link, Avatar, Stack } from "@mui/material";
 
 const Grid = styled("div")({
   display: "grid",
   gridTemplateColumns: "repeat(auto-fill, minmax(19rem, 1fr))",
-  width: "90%",
+  width: "100%",
   rowGap: 20,
   columnGap: 10,
-  marginInline: "auto",
   marginBottom: '100px'
 });
 
 const Card = styled("div")({
+  aspectRatio: "1.0614",
   display: "flex",
   flexDirection: "column",
   justifyContent: "space-around",
@@ -26,7 +24,7 @@ function Categories() {
   return (
     <Grid>
       {[1, 2, 3, 4, 5, 6, 7, 8].map((e) => (
-        <Card style={{ aspectRatio: "1.0614" }}>
+        <Card key={e}>
           <div
             style={{
               borderRadius: "2rem",

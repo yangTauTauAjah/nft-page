@@ -1,7 +1,7 @@
-import HeroSection from "./HeroSection";
-import Product from "./Product";
-import Categories from "./Categories";
-import { Box, Container, Stack, styled } from "@mui/system";
+import HeroSection from "../components/Content/HeroSection";
+import Product from "../components/Content/Product";
+import Categories from "../components/Content/Categories";
+import { styled } from "@mui/system";
 
 const Main = styled("div")({
   display: "flex",

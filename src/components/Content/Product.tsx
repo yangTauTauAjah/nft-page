@@ -1,19 +1,11 @@
-import React from "react";
-import { /* Box, Container, Stack, */ styled } from "@mui/system";
-import { Box, Button, Container, Link, Avatar, Stack } from "@mui/material";
+import { styled } from "@mui/system";
+import { Button, Link, Avatar, Stack } from "@mui/material";
 
 const Recommendation = styled("div")({
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
   width: "100%"
-});
-
-const TopSeller = styled("div")({
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "space-between",
-  alignItems: "center"
 });
 
 const BigCard = styled("div")({
@@ -41,7 +33,7 @@ const Card = styled("div")({
   color: "rgba(255,255,255,0.2)"
 });
 
-const CardComponent = (props: {
+const LongCard = (props: {
   image: string;
   title: string;
   eth: number;
@@ -145,7 +137,7 @@ function Product() {
           </h3>
           <Stack gap={1.5} style={{ marginBottom: "30px" }}>
             {[0, 1, 2, 3].map((e, i) => (
-              <CardComponent
+              <LongCard
                 key={i}
                 image="test"
                 title="Title name two bars Title name two bars"

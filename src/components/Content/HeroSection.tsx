@@ -1,6 +1,5 @@
-import React from "react";
-import { Box, Container, Stack, styled } from "@mui/system";
-// import { Button, Link } from "@mui/material";
+import { styled } from "@mui/system";
+import { Button } from "@mui/material";
 
 const Main = styled("div")({
   display: "flex",
@@ -22,7 +21,8 @@ const Hero = styled("div")({
   alignItems: "center"
 });
 
-const Button = styled("button")({
+const ExtendedButton = styled(Button)({
+  textTransform: "initial",
   width: "22.5rem",
   height: "3.5rem",
   borderRadius: "3.5rem",
@@ -48,7 +48,7 @@ function HeroSection() {
       <div></div>
       <Hero>
         <h1 style={{ textAlign: "center", fontSize: 100 }}>Collect Your NFTs Here!</h1>
-        <Button>Find your NFT</Button>
+        <ExtendedButton>Find your NFT</ExtendedButton>
       </Hero>
     </Main>
   );
