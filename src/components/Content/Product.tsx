@@ -1,5 +1,8 @@
+import React, { useRef, useEffect, useState } from "react";
 import { styled } from "@mui/system";
 import { Button, Link, Avatar, Stack } from "@mui/material";
+import { newAuction, topSeller } from "@/mockData.json";
+import { useTheme } from "@mui/material";
 
 const Recommendation = styled("div")({
   display: "flex",
@@ -15,8 +18,6 @@ const BigCard = styled("div")({
   justifyContent: "space-between",
   width: "40vw",
   aspectRatio: "0.674",
-  background: "rgba(0,0,0,0.3)",
-  color: "rgba(255,255,255,0.2)",
   padding: "40px"
 });
 
@@ -28,19 +29,20 @@ const Card = styled("div")({
   padding: "20px",
   width: "30.5vw",
   aspectRatio: "3.142",
-  fontSize: "1rem",
-  background: "rgba(0,0,0,0.3)",
-  color: "rgba(255,255,255,0.2)"
+  fontSize: "1rem"
 });
 
 const LongCard = (props: {
   image: string;
   title: string;
   eth: number;
-  time: Date;
+  time: string;
 }) => {
+
+  const Theme = useTheme()
+
   return (
-    <Card>
+    <Card sx={{background: `linear-gradient(to bottom, rgba(240, 240, 240, 0.1) 0%, rgba(255, 255, 255, 0.02) 100%);`}}>
       <div
         style={{
           height: "100%",
@@ -49,31 +51,53 @@ const LongCard = (props: {
           borderRadius: "12px"
         }}
       />
-      <div>
+      <div style={{ flexGrow: 1 }}>
         <h3 style={{ fontSize: "1.1rem" }}>{props.title}</h3>
-        <div
-          style={{ display: "flex", justifyContent: "space-between" }}
-        >
-          <p style={{ fontSize: "1rem" }}>{props.eth} ETH</p>
-          <p style={{ fontSize: "1rem" }}>
-            {props.time.getHours()}:{props.time.getMinutes()}:
-            {props.time.getSeconds()}
-          </p>
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <p style={{ fontSize: "1rem", fontWeight: 600 }}>{props.eth} ETH</p>
+          <p style={{ fontSize: "1rem", fontWeight: 600, color: Theme.palette.primary.main }}>{props.time}</p>
         </div>
       </div>
     </Card>
   );
 };
 
+let time = 45242000;
+let first = 0;
+
 function Product() {
+  const ref = useRef<HTMLHeadingElement>(null);
+  const Theme = useTheme()
+
+  useEffect(() => {
+    if (ref.current?.innerText && first === 1) {
+      let id = setInterval(() => {
+        const timer = new Date((time -= 1000));
+        // @ts-ignore
+        ref.current.innerText = `${timer.getUTCHours()}:${timer.getUTCMinutes()}:${timer
+          .getUTCSeconds()
+          .toString()
+          .padStart(2, "0")}`;
+      }, 1000);
+      return () => clearInterval(id);
+    }
+    if (first === 0) first = 1;
+
+    // new Date((60*(12 * 60 + 34) + 2)* 1000)
+  }, []);
+
   return (
-    <Stack
-      gap={10}
-      sx={{ width: "80vw", marginInline: "auto" }}
-    >
+    <Stack gap={10} sx={{
+      width: "80vw",
+      marginInline: "auto",
+      color: 'white',
+    }}>
       <Recommendation>
-        <BigCard>
-          <h3 style={{ fontSize: 32 }}>Item ending soon</h3>
+        <BigCard sx={{
+          /* @ts-ignore */
+          background: `linear-gradient(to bottom, ${Theme.palette.primary[500]}30 0%, ${Theme.palette.primary[500]}06 100%)`
+        }}>
+          <h3 style={{ fontSize: 32, }}>Item ending soon</h3>
           <div
             style={{
               borderRadius: "0.7rem",
@@ -83,8 +107,8 @@ function Product() {
             }}
           />
           <div>
-            <h3 style={{ fontSize: 26 }}>Title of names</h3>
-            <p>by Seller Name</p>
+            <h3 style={{ fontSize: 26 }}>Hurricane (Common Body)</h3>
+            <p>by Spider Tanks</p>
           </div>
           <div
             style={{
@@ -93,12 +117,16 @@ function Product() {
             }}
           >
             <div>
-              <p>Current bid</p>
-              <h3 style={{ fontSize: 32 }}>0.0079 ETH</h3>
+              {/* @ts-ignore */}
+              <p style={{ fontSize: '1.25rem', fontWeight: 600, color: Theme.palette.primary[600] }}>Current bid</p>
+              <h3 style={{ marginTop: '0.5rem', fontSize: 32 }}>0.0079 ETH</h3>
             </div>
             <div style={{ textAlign: "end" }}>
-              <p>ReStacking Time</p>
-              <h3 style={{ fontSize: 32 }}>12:34:02</h3>
+              {/* @ts-ignore */}
+              <p style={{ fontSize: '1.25rem', fontWeight: 600, color: Theme.palette.primary[600] }}>Remaining Time</p>
+              <h3 ref={ref} style={{ marginTop: '0.5rem', fontSize: 32 }}>
+                12:34:02
+              </h3>
             </div>
           </div>
           <div
@@ -136,18 +164,18 @@ function Product() {
             New Auction
           </h3>
           <Stack gap={1.5} style={{ marginBottom: "30px" }}>
-            {[0, 1, 2, 3].map((e, i) => (
+            {newAuction.map(({ name, price, time }, i) => (
               <LongCard
                 key={i}
                 image="test"
-                title="Title name two bars Title name two bars"
-                eth={10 * e}
-                time={new Date()}
+                title={name}
+                eth={price}
+                time={time}
               />
             ))}
           </Stack>
           <div>
-            <Link sx={{ color: "gray" }}>View all auctions</Link>
+            <Link sx={{ textAlign: 'right' }}>View all auctions</Link>
           </div>
         </div>
       </Recommendation>
@@ -158,14 +186,12 @@ function Product() {
           gap={"3vw"}
           sx={{ flexWrap: "wrap", justifyContent: "center" }}
         >
-          <Avatar sx={{ width: "7vw", height: "7vw" }}>H</Avatar>
-          <Avatar sx={{ width: "7vw", height: "7vw" }}>H</Avatar>
-          <Avatar sx={{ width: "7vw", height: "7vw" }}>H</Avatar>
-          <Avatar sx={{ width: "7vw", height: "7vw" }}>H</Avatar>
-          <Avatar sx={{ width: "7vw", height: "7vw" }}>H</Avatar>
-          <Avatar sx={{ width: "7vw", height: "7vw" }}>H</Avatar>
-          <Avatar sx={{ width: "7vw", height: "7vw" }}>H</Avatar>
-          <Avatar sx={{ width: "7vw", height: "7vw" }}>H</Avatar>
+          {topSeller.map(({ nickName }, i) => (
+            <Stack key={i} gap={3} sx={{ alignItems: "center" }}>
+              <Avatar sx={{ width: "7vw", height: "7vw" }}>A</Avatar>
+              <p>{nickName}</p>
+            </Stack>
+          ))}
         </Stack>
       </Stack>
     </Stack>
