@@ -1,4 +1,5 @@
 import { styled } from "@mui/system";
+import { categories } from '@/mockData.json'
 
 const Grid = styled("div")({
   display: "grid",
@@ -23,8 +24,8 @@ const Card = styled("div")({
 function Categories() {
   return (
     <Grid>
-      {[1, 2, 3, 4, 5, 6, 7, 8].map((e) => (
-        <Card key={e}>
+      {categories.map(({category}, i) => (
+        <Card key={i}>
           <div
             style={{
               borderRadius: "2rem",
@@ -33,7 +34,7 @@ function Categories() {
               background: "rgba(255,255,255,0.02)"
             }}
           />
-          <h4 style={{ fontSize: 20 }}>Card title</h4>
+          <h4 style={{ fontSize: 20 }}>{category}</h4>
         </Card>
       ))}
     </Grid>
