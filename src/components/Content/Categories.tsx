@@ -1,5 +1,6 @@
 import { styled } from "@mui/system";
 import { categories } from '@/mockData.json'
+import { useTheme } from "@mui/material";
 
 const Grid = styled("div")({
   display: "grid",
@@ -22,6 +23,9 @@ const Card = styled("div")({
 });
 
 function Categories() {
+
+  const Theme = useTheme()
+
   return (
     <Grid>
       {categories.map(({category}, i) => (
@@ -31,7 +35,7 @@ function Categories() {
               borderRadius: "2rem",
               height: "75%",
               width: "100%",
-              background: "rgba(255,255,255,0.02)"
+              background: `linear-gradient(to bottom, ${Theme.palette.primary.main}30 0%, ${Theme.palette.primary.main}06 100%)`
             }}
           />
           <h4 style={{ fontSize: 20 }}>{category}</h4>
