@@ -1,13 +1,20 @@
-import { Button } from "@mui/material";
+import { Button, useTheme, Stack } from "@mui/material";
 import { styled } from "@mui/system";
 import { LinksList } from '../components/Header'
 import { FlexSpaceBetweenCentered } from "@/components";
+import Logo from '@/components/Logo'
+import Wallet from '@/assets/images/Icon/Wallet.png'
 
 const ButtonStyle = {
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  gap: '0.7rem',
   height: "60px",
-  width: "164px",
   borderRadius: "25px",
-  fontSize: "1rem"
+  px: '2rem',
+  fontSize: "1rem",
+  textTransform: 'unset'
 }
 
 const Main = styled(FlexSpaceBetweenCentered)(({ theme }) => ({
@@ -18,11 +25,18 @@ const Main = styled(FlexSpaceBetweenCentered)(({ theme }) => ({
 }));
 
 function Header() {
+
   return (
     <Main>
-      Test
+      <Stack direction='row' sx={{gap: '1rem', color: 'white'}}>
+        <Logo/>
+        <h1>MahyuNFT</h1>
+      </Stack>
       <LinksList />
-      <Button sx={ButtonStyle} variant="contained"> My Wallet</Button>
+      <Button sx={ButtonStyle} variant="contained">
+        <img src={Wallet} style={{height: '50%'}} />
+        <p>My Wallet</p>
+      </Button>
     </Main>
   );
 }

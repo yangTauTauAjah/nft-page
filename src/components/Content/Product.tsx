@@ -1,8 +1,12 @@
-import React, { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 import { styled } from "@mui/system";
-import { Button, Link, Avatar, Stack } from "@mui/material";
-import { newAuction, topSeller } from "@/mockData.json";
+import { Button, Link, Avatar, Stack, Box } from "@mui/material";
+import { newAuction, topSeller } from "@/mockData";
 import { useTheme } from "@mui/material";
+import EndingSoon from '@/assets/images/NewAuction/endingSoon.png'
+import Fire from '@/assets/images/Icon/Fire.png'
+import Checklist from '@/assets/images/Icon/Checklist.png'
+import RightArrow from '@/assets/images/Icon/RightArrow.png'
 
 const Recommendation = styled("div")({
   display: "flex",
@@ -42,15 +46,19 @@ const LongCard = (props: {
   const Theme = useTheme()
 
   return (
-    <Card sx={{background: `linear-gradient(to bottom, rgba(240, 240, 240, 0.1) 0%, rgba(255, 255, 255, 0.02) 100%);`}}>
+    <Card sx={{ background: `linear-gradient(to bottom, rgba(240, 240, 240, 0.1) 0%, rgba(255, 255, 255, 0.02) 100%);` }}>
       <div
         style={{
           height: "100%",
           aspectRatio: 1,
           background: "rgba(0,0,0,0.3)",
-          borderRadius: "12px"
+          borderRadius: "12px",
+          overflow: 'hidden',
+          flexShrink: 0
         }}
-      />
+      >
+        <img src={props.image} style={{ height: '100%' }} />
+      </div>
       <div style={{ flexGrow: 1 }}>
         <h3 style={{ fontSize: "1.1rem" }}>{props.title}</h3>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
@@ -97,18 +105,33 @@ function Product() {
           /* @ts-ignore */
           background: `linear-gradient(to bottom, ${Theme.palette.primary[500]}30 0%, ${Theme.palette.primary[500]}06 100%)`
         }}>
-          <h3 style={{ fontSize: 32, }}>Item ending soon</h3>
+          <Stack direction='row' sx={{ alignItems: 'center', gap: '1rem' }}>
+            <img src={Fire} style={{ height: '100%' }} />
+            <h3 style={{ fontSize: 32, marginRight: 'auto' }}>Item ending soon</h3>
+            <Box component='img' src={RightArrow} sx={{
+              height: '80%',
+              '&:hover': {
+                cursor: 'pointer'
+              }
+            }} />
+          </Stack>
           <div
             style={{
               borderRadius: "0.7rem",
               width: "auto",
               aspectRatio: 1.314,
-              background: "rgba(0,0,0,0.3)"
+              background: "rgba(0,0,0,0.3)",
+              overflow: 'hidden'
             }}
-          />
+          >
+            <img src={EndingSoon} style={{ width: '100%' }} />
+          </div>
           <div>
             <h3 style={{ fontSize: 26 }}>Hurricane (Common Body)</h3>
-            <p>by Spider Tanks</p>
+            <Stack direction='row' sx={{ fontSize: '1rem', alignItems: 'center', gap: '1rem', fontWeight: 600 }}>
+              <p>by Spider Tanks</p>
+              <img src={Checklist} style={{ height: '10%' }} />
+            </Stack>
           </div>
           <div
             style={{
@@ -164,13 +187,13 @@ function Product() {
             New Auction
           </h3>
           <Stack gap={1.5} style={{ marginBottom: "30px" }}>
-            {newAuction.map(({ name, price, time }, i) => (
+            {newAuction.map(({ imageUrl, name, price, time }, i) => (
               <LongCard
                 key={i}
-                image="test"
+                image={imageUrl}
                 title={name}
                 eth={price}
-                time={time}
+                time={`${time.getUTCHours()}:${time.getUTCMinutes()}:${time.getUTCSeconds()}`}
               />
             ))}
           </Stack>
@@ -186,9 +209,9 @@ function Product() {
           gap={"3vw"}
           sx={{ flexWrap: "wrap", justifyContent: "center" }}
         >
-          {topSeller.map(({ nickName }, i) => (
-            <Stack key={i} gap={3} sx={{ alignItems: "center" }}>
-              <Avatar sx={{ width: "7vw", height: "7vw" }}>A</Avatar>
+          {topSeller.map(({ nickName, imageUrl }, i) => (
+            <Stack key={i} gap={3} sx={{ alignItems: "center", fontWeight: 500 }}>
+              <Avatar src={imageUrl} sx={{ width: "7vw", height: "7vw" }} />
               <p>{nickName}</p>
             </Stack>
           ))}

@@ -1,7 +1,8 @@
 import { styled } from "@mui/system";
 import { Button } from "@mui/material";
-import img2 from '@/assets/images/img2.png'
 import { useTheme, Box } from "@mui/material";
+import Banner from '@/assets/images/Banner/img2.png'
+import Search from '@/assets/images/Icon/Search.png'
 
 const Main = styled("div")({
   display: "flex",
@@ -25,11 +26,15 @@ const Hero = styled("div")({
 });
 
 const ExtendedButton = styled(Button)({
+  display: 'flex',
+  gap: '1rem',
+  justifyContent: 'center',
+  alignItems: 'center',
   textTransform: "initial",
   width: "22.5rem",
   height: "3.5rem",
   borderRadius: "3.5rem",
-  fontSize: '0.9rem',
+  fontSize: '1rem',
   background: [
     `rgb(255,255,255);`,
     `linear-gradient(163deg, rgba(240,240,240,0.5) 0%, rgba(255,255,255,0.1) 100%);`
@@ -53,7 +58,7 @@ function HeroSection() {
         }}
       >
         <div style={{ position: 'absolute', width: '100%', height: '100%', background: 'rgba(3, 10, 35, 0.8)', top: 0 }} />
-        <img style={{ zIndex: -1, width: '100%', top: '-50%' }} src={img2} />
+        <img style={{ zIndex: -1, width: '100%', top: '-50%' }} src={Banner} />
       </div>
       <Hero>
         <Box component='h1' sx={{
@@ -64,7 +69,10 @@ function HeroSection() {
           textAlign: "center",
           fontSize: 100,
         }}>Collect Your NFTs Here!</Box >
-        <ExtendedButton>Find your NFT</ExtendedButton>
+        <ExtendedButton>
+          <img src={Search} style={{height: '60%'}} />
+          <p>Find your NFT</p>
+        </ExtendedButton>
       </Hero>
     </Main>
   );

@@ -1,6 +1,5 @@
 import { styled } from "@mui/system";
-import { categories } from '@/mockData.json'
-import { useTheme } from "@mui/material";
+import { categories } from '@/mockData'
 
 const Grid = styled("div")({
   display: "grid",
@@ -11,33 +10,33 @@ const Grid = styled("div")({
   marginBottom: '100px'
 });
 
-const Card = styled("div")({
+const Card = styled("div")(({theme}) => ({
+  color: 'white',
   aspectRatio: "1.0614",
   display: "flex",
   flexDirection: "column",
   justifyContent: "space-around",
   alignItems: "center",
-  background: "rgba(0,0,0,0.2)",
+  background: `linear-gradient(to bottom, ${theme.palette.primary.main}30 0%, ${theme.palette.primary.main}06 100%)`,
   padding: "20px",
   borderRadius: "2rem"
-});
+}));
 
 function Categories() {
 
-  const Theme = useTheme()
-
   return (
     <Grid>
-      {categories.map(({category}, i) => (
+      {categories.map(({category, thumbnail}, i) => (
         <Card key={i}>
           <div
             style={{
               borderRadius: "2rem",
-              height: "75%",
               width: "100%",
-              background: `linear-gradient(to bottom, ${Theme.palette.primary.main}30 0%, ${Theme.palette.primary.main}06 100%)`
+              overflow: 'hidden'
             }}
-          />
+          >
+            <img src={thumbnail} style={{width: '100%'}} />
+          </div>
           <h4 style={{ fontSize: 20 }}>{category}</h4>
         </Card>
       ))}

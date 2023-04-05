@@ -1,5 +1,7 @@
 import { styled } from "@mui/system";
 import { Button, Link, Stack, Input } from "@mui/material";
+import { useTheme } from '@mui/material'
+import Logo from "../Logo";
 
 const Grid = styled("div")({
   display: "grid",
@@ -10,29 +12,43 @@ const Grid = styled("div")({
   padding: "50px"
 });
 
+const ExtendedLink = styled(Link)({
+  color: 'white',
+  fontWeight: 700,
+  fontSize: '1.125rem',
+  transtition: 'all 100ms ease-in-out',
+  cursor: 'pointer'
+})
+
 function Upper() {
+
+  const Theme = useTheme()
+
   return (
-    <Grid style={{ color: "rgba(144,144,144)" }}>
+    // @ts-ignore
+    <Grid style={{ background: `${Theme.palette.primary[700]}20`, color: 'white', fontWeight: 600 }}>
       <Stack gap={5}>
-        <div
+        {/* <div
           style={{
             width: "255px",
             height: "50px",
             background: "rgba(0,0,0,.2)"
           }}
-        />
+        /> */}
+        <Stack direction='row' sx={{alignItems: 'center'}}>
+          <Logo fill='white'/>
+          <h3>MahyuNFT</h3>
+        </Stack>
         <p style={{ fontSize: "1.125rem" }}>
           MahyuNFT is the largest NFTs Marketplace of Etherium (ETH). Buy,
           sell, and discover exclusive digital items.
         </p>
       </Stack>
       <Stack sx={{ justifyContent: "space-between" }}>
-        <Link sx={{ fontSize: "1.125rem" }}>About Us</Link>
-        <Link sx={{ fontSize: "1.125rem" }}>
-          Frequently Asked Questions (FAQ)
-        </Link>
-        <Link sx={{ fontSize: "1.125rem" }}>Help Center</Link>
-        <Link sx={{ fontSize: "1.125rem" }}>How to Buy and Sell</Link>
+        <ExtendedLink>About Us</ExtendedLink>
+        <ExtendedLink>Frequently Asked Questions (FAQ)</ExtendedLink>
+        <ExtendedLink>Help Center</ExtendedLink>
+        <ExtendedLink>How to Buy and Sell</ExtendedLink>
       </Stack>
       <Stack gap={3}>
         <p>Subscribe MahyuNFT for newsletter right now!</p>
