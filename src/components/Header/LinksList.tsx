@@ -7,18 +7,24 @@ export const Main = styled(FlexSpaceBetweenCentered)(({ theme }) => ({
   gap: "2.5rem"
 }));
 
+const StyledLink = styled(Link)({
+  color: "gray",
+  textDecoration: "none",
+  cursor: "pointer",
+  fontSize: '1.125rem',
+  fontWeight: 500,
+  transition: 'color 100ms ease-in',
+  '&:hover': {
+    color: 'white'
+  }
+})
+
 function LinksList() {
   return (
     <Main>
-      <Link sx={{ color: "gray", textDecoration: "none", cursor: "pointer" }}>
-        Auction
-      </Link>
-      <Link sx={{ color: "gray", textDecoration: "none", cursor: "pointer" }}>
-        Community
-      </Link>
-      <Link sx={{ color: "gray", textDecoration: "none", cursor: "pointer" }}>
-        Explore
-      </Link>
+      <StyledLink>Auction</StyledLink>
+      <StyledLink>Community</StyledLink>
+      <StyledLink>Explore</StyledLink>
     </Main>
   );
 }
