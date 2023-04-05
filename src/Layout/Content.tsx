@@ -10,7 +10,6 @@ const Main = styled("div")({
   alignItems: 'center',
   width: "90%",
   marginInline: "auto",
-  background: "rgba(0,0,0,.1)"
 });
 
 function Content() {
