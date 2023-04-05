@@ -1,24 +1,25 @@
 {
   "newAuction": [
     {
-      "imageUrl": "",
+      "imageUrl": "https://github.com/yangTauTauAjah/nft-page/raw/main/src/assets/images/NewAuction/palmTrees.png",
       "name": "Somewhere Else: 094 - Palm Trees & Basketball",
       "price": 0.5,
       "time": "03:23:23"
     },
     {
-      "imageUrl": "",
+      "imageUrl": "https://github.com/yangTauTauAjah/nft-page/raw/main/src/assets/images/NewAuction/drip.png",
       "name": "DRIP #515",
       "price": 0.7,
       "time": "00:33:44"
     },
     {
+      "imageUrl": "https://github.com/yangTauTauAjah/nft-page/raw/main/src/assets/images/NewAuction/bikes.png",
       "name": "Bikes of Burden #28. Ribs.",
       "price": 2.5,
       "time": "00:33:44"
     },
     {
-      "imageUrl": "",
+      "imageUrl": "https://github.com/yangTauTauAjah/nft-page/raw/main/src/assets/images/NewAuction/rizzo.png",
       "name": "Rizzo Collection #36",
       "price": 1.2,
       "time": "08:17:13"
@@ -26,69 +27,69 @@
   ],
   "topSeller": [
     {
-      "imageUrl": "",
+      "imageUrl": "https://github.com/yangTauTauAjah/nft-page/raw/main/src/assets/images/TopSeller/RizKhen.png",
       "nickName": "RizKhen"
     },
     {
-      "imageUrl": "",
+      "imageUrl": "https://github.com/yangTauTauAjah/nft-page/raw/main/src/assets/images/TopSeller/Jhiehe.png",
       "nickName": "Jhiehe"
     },
     {
-      "imageUrl": "",
+      "imageUrl": "https://github.com/yangTauTauAjah/nft-page/raw/main/src/assets/images/TopSeller/Fukiep.png",
       "nickName": "Fukiep"
     },
     {
-      "imageUrl": "",
+      "imageUrl": "https://github.com/yangTauTauAjah/nft-page/raw/main/src/assets/images/TopSeller/Hags.png",
       "nickName": "Hags"
     },
     {
-      "imageUrl": "",
+      "imageUrl": "https://github.com/yangTauTauAjah/nft-page/raw/main/src/assets/images/TopSeller/Berhans.png",
       "nickName": "Berhans"
     },
     {
-      "imageUrl": "",
+      "imageUrl": "https://github.com/yangTauTauAjah/nft-page/raw/main/src/assets/images/TopSeller/Abdiliie.png",
       "nickName": "Abdliie"
     },
     {
-      "imageUrl": "",
+      "imageUrl": "https://github.com/yangTauTauAjah/nft-page/raw/main/src/assets/images/TopSeller/WeturArt.png",
       "nickName": "Wetur Art"
     },
     {
-      "imageUrl": "",
+      "imageUrl": "https://github.com/yangTauTauAjah/nft-page/raw/main/src/assets/images/TopSeller/Pokko.png",
       "nickName": "Pokko"
     }
   ],
   "categories": [
     {
-      "thumbnail": "",
+      "thumbnail": "https://raw.githubusercontent.com/yangTauTauAjah/nft-page/main/src/assets/images/Categories/art.png",
       "category": "Art"
     },
     {
-      "thumbnail": "",
+      "thumbnail": "https://raw.githubusercontent.com/yangTauTauAjah/nft-page/main/src/assets/images/Categories/collection.png",
       "category": "Collection"
     },
     {
-      "thumbnail": "",
+      "thumbnail": "https://github.com/yangTauTauAjah/nft-page/raw/main/src/assets/images/Categories/domainName.png",
       "category": "Domain Name"
     },
     {
-      "thumbnail": "",
+      "thumbnail": "https://github.com/yangTauTauAjah/nft-page/raw/main/src/assets/images/Categories/music.png",
       "category": "Music"
     },
     {
-      "thumbnail": "",
+      "thumbnail": "https://github.com/yangTauTauAjah/nft-page/raw/main/src/assets/images/Categories/photography.png",
       "category": "Photography"
     },
     {
-      "thumbnail": "",
+      "thumbnail": "https://github.com/yangTauTauAjah/nft-page/raw/main/src/assets/images/Categories/sport.png",
       "category": "Sport"
     },
     {
-      "thumbnail": "",
+      "thumbnail": "https://github.com/yangTauTauAjah/nft-page/raw/main/src/assets/images/Categories/tradingCard.png",
       "category": "Trading Card"
     },
     {
-      "thumbnail": "",
+      "thumbnail": "https://github.com/yangTauTauAjah/nft-page/raw/main/src/assets/images/Categories/utility.png",
       "category": "Utility"
     }
   ]
