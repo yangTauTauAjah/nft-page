@@ -1,4 +1,4 @@
-import { createTheme, ThemeProvider } from "@mui/material";
+import { createTheme, ThemeProvider, CssBaseline } from "@mui/material";
 import { themeSettings } from "@/theme";
 import Header from "./Layout/Header";
 import Footer from "./Layout/Footer";
@@ -9,6 +9,7 @@ const Theme = createTheme(themeSettings);
 function App() {
   return (
     <ThemeProvider theme={Theme}>
+      <CssBaseline  />
       <Header />
       <Content />
       <Footer />
