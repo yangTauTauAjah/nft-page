@@ -13,7 +13,8 @@ const ButtonStyle = {
 const Main = styled(FlexSpaceBetweenCentered)(({ theme }) => ({
   width: 'auto',
   height: theme.spacing(10),
-  paddingInline: theme.spacing(6.2)
+  paddingInline: theme.spacing(6.2),
+  background: 'rgba(255,255,255,.05)'
 }));
 
 function Header() {
