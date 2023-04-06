@@ -1,7 +1,6 @@
 import React from 'react'
-import { Button, Link, Stack, styled, Input, IconButton, Dialog, DialogTitle, DialogActions, DialogContent, DialogContentText, Backdrop, CircularProgress } from "@mui/material";
+import { Button, Link, Stack, styled, Input, Dialog, DialogTitle, DialogActions, DialogContent, DialogContentText, Backdrop, CircularProgress } from "@mui/material";
 import { useTheme } from '@mui/material'
-import CloseIcon from '@mui/icons-material/Close';
 import Logo from "../Logo";
 
 const Grid = styled("div")({
