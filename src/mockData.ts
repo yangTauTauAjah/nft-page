@@ -1,4 +1,11 @@
 import {
+  Banner1,
+  Banner2,
+  Banner3,
+  Banner4,
+} from "@/assets/images/Banner";
+
+import {
   Bikes,
   Drip,
   EndingSoon,
@@ -49,6 +56,8 @@ interface CategoryInterface {
   thumbnail: string;
   category: string;
 }
+
+const Banner = [Banner1, Banner2, Banner3, Banner4]
 
 const newAuction: NewAuctionInterface[] = [
   {
@@ -147,7 +156,7 @@ const categories: CategoryInterface[] = [
   }
 ];
 
-const Data = { newAuction, topSeller, categories }
+const Data = { Banner, newAuction, topSeller, categories }
 
-export { newAuction, topSeller, categories }
+export { Banner, newAuction, topSeller, categories }
 export default Data
