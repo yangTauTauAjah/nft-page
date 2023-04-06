@@ -48,7 +48,14 @@ const LongCard = (props: LongCardPropsInterface) => {
   const Theme = useTheme()
 
   return (
-    <Card sx={{ background: `linear-gradient(to bottom, rgba(240, 240, 240, 0.1) 0%, rgba(255, 255, 255, 0.02) 100%);` }}>
+    <Card sx={{
+      background: `linear-gradient(to bottom, rgba(240, 240, 240, 0.1) 0%, rgba(255, 255, 255, 0.02) 100%);`,
+      cursor: 'pointer',
+      transition: 'all 300ms ease-in-out',
+      '&:hover': {
+        boxShadow: '0 0 40px rgba(170, 170, 170, 0.2)',
+      }
+    }}>
       <div
         style={{
           height: "100%",
@@ -62,10 +69,10 @@ const LongCard = (props: LongCardPropsInterface) => {
         <img src={props.image} style={{ height: '100%' }} />
       </div>
       <div style={{ flexGrow: 1 }}>
-        <h3 style={{ fontSize: "1.1rem" }}>{props.title}</h3>
+        <h3 style={{ fontSize: "1.1rem", cursor: 'pointer' }}>{props.title}</h3>
         <div style={{ display: "flex", justifyContent: "space-between" }}>
-          <p style={{ fontSize: "1rem", fontWeight: 600 }}>{props.eth} ETH</p>
-          <p style={{ fontSize: "1rem", fontWeight: 600, color: Theme.palette.primary.main }}>{props.time}</p>
+          <p style={{ fontSize: "1rem", fontWeight: 600, cursor: 'pointer' }}>{props.eth} ETH</p>
+          <p style={{ fontSize: "1rem", fontWeight: 600, color: Theme.palette.primary.main, cursor: 'pointer' }}>{props.time}</p>
         </div>
       </div>
     </Card>
@@ -75,13 +82,12 @@ const LongCard = (props: LongCardPropsInterface) => {
 let time = 45242000;
 
 function Product() {
-  
+
   const ref = useRef<HTMLHeadingElement>(null);
   const Theme = useTheme()
 
   useEffect(() => {
     if (ref.current?.innerText) {
-      console.log('test2')
       let id = setInterval(() => {
         const timer = new Date((time -= 1000));
         // @ts-ignore
@@ -90,7 +96,7 @@ function Product() {
           .toString()
           .padStart(2, "0")}`;
       }, 1000);
-      return () => {clearInterval(id);console.log('test3')}
+      return () => clearInterval(id)
     }
   }, []);
 
@@ -103,7 +109,11 @@ function Product() {
       <Recommendation>
         <BigCard sx={{
           /* @ts-ignore */
-          background: `linear-gradient(to bottom, ${Theme.palette.primary[500]}30 0%, ${Theme.palette.primary[500]}06 100%)`
+          background: `linear-gradient(to bottom, ${Theme.palette.primary[500]}30 0%, ${Theme.palette.primary[500]}06 100%)`,
+          transition: 'all 100ms ease-in-out',
+          '&:hover': {
+            boxShadow: '0 0 70px rgba(34, 126, 255, 0.1)',
+          }
         }}>
           <Stack direction='row' sx={{ alignItems: 'center', gap: '1rem' }}>
             <img src={Fire} style={{ height: '100%' }} />
@@ -197,7 +207,20 @@ function Product() {
               />
             ))}
           </Stack>
-          <Link sx={{ display: 'inline-block', width: '100%', textAlign: 'right' }}>View all auctions</Link>
+          <Link sx={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'flex-end',
+            gap: '1rem',
+            color: 'white',
+            fontSize: '1rem',
+            '&:hover': {
+              cursor: 'pointer'
+            }
+          }}>
+            <span>View all auctions</span>
+            <Box component='img' src={RightArrow} />
+          </Link>
         </div>
       </Recommendation>
       <Stack gap={5} sx={{ alignItems: "center" }}>
