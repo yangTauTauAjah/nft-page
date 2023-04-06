@@ -1,4 +1,5 @@
 import { Link, Stack, styled, Button } from "@mui/material";
+import { GitHub } from '@mui/icons-material'
 
 const ExtendedLink = styled(Link)({
   color: 'white',
@@ -18,7 +19,10 @@ function Bottom() {
       <p style={{ marginRight: "auto" }}>Mahyu (design mockup)</p>
       <ExtendedLink>Privacy Policy</ExtendedLink>
       <ExtendedLink>Terms of Service</ExtendedLink>
-      <ExtendedLink href="https://github.com/yangTauTauAjah/nft-page" target='_blank' rel="noopener">Refer to source code</ExtendedLink>
+      <ExtendedLink sx={{display: 'flex', gap: '1rem', alignItems: 'center'}} href="https://github.com/yangTauTauAjah/nft-page" target='_blank' rel="noopener">
+        <span>Refer to source code</span>
+        <GitHub/>
+      </ExtendedLink>
     </Stack>
   )
 }
