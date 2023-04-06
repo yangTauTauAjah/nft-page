@@ -1,5 +1,9 @@
+import { Link, Stack, styled, Button } from "@mui/material";
 
-import { Stack } from "@mui/material";
+const ExtendedLink = styled(Link)({
+  color: 'white',
+  cursor: 'pointer'
+})
 
 function Bottom() {
 
@@ -9,9 +13,12 @@ function Bottom() {
       gap={3}
       style={{ background: "rgba(20, 25, 35, 1)", padding: "20px", color: 'white' }}
     >
-      <p style={{ marginRight: "auto" }}>© 2023 MahyuNFT, Inc</p>
-      <p>Privacy Policy</p>
-      <p>Terms of Service</p>
+      <p>© 2023</p>
+      <p>Habib Anwash (web developer)</p>
+      <p style={{ marginRight: "auto" }}>Mahyu (design mockup)</p>
+      <ExtendedLink>Privacy Policy</ExtendedLink>
+      <ExtendedLink>Terms of Service</ExtendedLink>
+      <ExtendedLink href="https://github.com/yangTauTauAjah/nft-page" target='_blank' rel="noopener">Refer to source code</ExtendedLink>
     </Stack>
   )
 }
