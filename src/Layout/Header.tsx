@@ -1,4 +1,4 @@
-import { Button, useTheme, Stack } from "@mui/material";
+import { Button, Stack } from "@mui/material";
 import { styled } from "@mui/system";
 import { LinksList } from '../components/Header'
 import { FlexSpaceBetweenCentered } from "@/components";
@@ -30,7 +30,7 @@ function Header() {
     <Main>
       <Stack direction='row' sx={{gap: '1rem', color: 'white'}}>
         <Logo/>
-        <h1>MahyuNFT</h1>
+        <h1>NFTopia</h1>
       </Stack>
       <LinksList />
       <Button sx={ButtonStyle} variant="contained">
