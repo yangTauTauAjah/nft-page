@@ -36,12 +36,14 @@ const Card = styled("div")({
   fontSize: "1rem"
 });
 
-const LongCard = (props: {
+interface LongCardPropsInterface {
   image: string;
   title: string;
   eth: number;
   time: string;
-}) => {
+}
+
+const LongCard = (props: LongCardPropsInterface) => {
 
   const Theme = useTheme()
 
@@ -90,8 +92,6 @@ function Product() {
       return () => clearInterval(id);
     }
     if (first === 0) first = 1;
-
-    // new Date((60*(12 * 60 + 34) + 2)* 1000)
   }, []);
 
   return (
@@ -197,9 +197,7 @@ function Product() {
               />
             ))}
           </Stack>
-          <div>
-            <Link sx={{ textAlign: 'right' }}>View all auctions</Link>
-          </div>
+          <Link sx={{ display: 'inline-block', width: '100%', textAlign: 'right' }}>View all auctions</Link>
         </div>
       </Recommendation>
       <Stack gap={5} sx={{ alignItems: "center" }}>
