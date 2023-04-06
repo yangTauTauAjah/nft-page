@@ -44,39 +44,35 @@ const ExtendedButton = styled(Button)({
   color: 'rgba(255,255,255, 0.5)'
 });
 
-let firstRender = 0
+const Banner = [
+  {id: 0, url: Imgs[0], top: '-50%', left: '0', width: '100%'},
+  {id: 1, url: Imgs[1], top: '0', left: '-50%', height: '100%'},
+  {id: 2, url: Imgs[2], top: '0', left: '0', width: '100%'},
+  {id: 3, url: Imgs[3], top: '0', left: '-30%', height: '100%'}
+]
 
 function HeroSection() {
 
-  const [Banner, setBanner] = useState([
-    {id: 0, url: Imgs[0], top: '-50%', left: '0', width: '100%'},
-    {id: 1, url: Imgs[1], top: '0', left: '-50%', height: '100%'},
-    {id: 2, url: Imgs[2], top: '0', left: '0', width: '100%'},
-    {id: 3, url: Imgs[3], top: '0', left: '-30%', height: '100%'}
-  ])
   const BannerWrapper = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
 
-    if (firstRender === 1) {
-      const id = setInterval(() => {
+    const id = setInterval(() => {
 
-        const animation = new Animation(new KeyframeEffect(BannerWrapper.current, { left: '-100%' }, { duration: 1000, easing: 'cubic-bezier(0.22, 0.61, 0.36, 1)' }), document.timeline)
-  
-        animation.onfinish = () => {
-          const firstSlide = BannerWrapper.current?.children.item(1)
-          if (firstSlide) {
-            BannerWrapper.current?.removeChild(firstSlide)
-            BannerWrapper.current?.appendChild(firstSlide)
-          }
+      const animation = new Animation(new KeyframeEffect(BannerWrapper.current, { left: '-100%' }, { duration: 1000, easing: 'cubic-bezier(0.22, 0.61, 0.36, 1)' }), document.timeline)
+
+      animation.onfinish = () => {
+        const firstSlide = BannerWrapper.current?.children.item(1)
+        if (firstSlide) {
+          BannerWrapper.current?.removeChild(firstSlide)
+          BannerWrapper.current?.appendChild(firstSlide)
         }
-        animation.play()
-        
-      }, 3000)
-      return () => clearInterval(id)
-    }
+      }
+      animation.play()
+      
+    }, 3000)
+    return () => clearInterval(id)
 
-    if (firstRender === 0) firstRender = 1
   }, [])
   
   const Theme = useTheme()

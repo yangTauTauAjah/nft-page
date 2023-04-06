@@ -73,14 +73,15 @@ const LongCard = (props: LongCardPropsInterface) => {
 };
 
 let time = 45242000;
-let first = 0;
 
 function Product() {
+  
   const ref = useRef<HTMLHeadingElement>(null);
   const Theme = useTheme()
 
   useEffect(() => {
-    if (ref.current?.innerText && first === 1) {
+    if (ref.current?.innerText) {
+      console.log('test2')
       let id = setInterval(() => {
         const timer = new Date((time -= 1000));
         // @ts-ignore
@@ -89,9 +90,8 @@ function Product() {
           .toString()
           .padStart(2, "0")}`;
       }, 1000);
-      return () => clearInterval(id);
+      return () => {clearInterval(id);console.log('test3')}
     }
-    if (first === 0) first = 1;
   }, []);
 
   return (
