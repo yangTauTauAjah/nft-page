@@ -90,8 +90,8 @@ function Upper() {
           <Button
             onClick={() => {
               // @ts-ignore
-              if (document.querySelector('#email-input')?.value === '') return
-              if (!error) setLoading(true)
+              if (document.querySelector('#email-input')?.value === '') setError(true)
+              else if (!error) setLoading(true)
             }}
             variant="contained"
             sx={{
