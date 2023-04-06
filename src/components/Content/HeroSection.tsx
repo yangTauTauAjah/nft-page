@@ -1,8 +1,9 @@
+import {useState, useRef, useEffect, useCallback} from 'react'
 import { styled } from "@mui/system";
 import { Button } from "@mui/material";
-import { useTheme, Box } from "@mui/material";
-import Banner from '@/assets/images/Banner/img2.png'
+import { useTheme, Box, Stack } from "@mui/material";
 import Search from '@/assets/images/Icon/Search.png'
+import { Banner as Imgs } from '@/mockData'
 
 const Main = styled("div")({
   display: "flex",
@@ -43,23 +44,65 @@ const ExtendedButton = styled(Button)({
   color: 'rgba(255,255,255, 0.5)'
 });
 
+let firstRender = 0
+
 function HeroSection() {
 
+  const [Banner, setBanner] = useState([
+    {id: 0, url: Imgs[0], top: '-50%', left: '0', width: '100%'},
+    {id: 1, url: Imgs[1], top: '0', left: '-50%', height: '100%'},
+    {id: 2, url: Imgs[2], top: '0', left: '0', width: '100%'},
+    {id: 3, url: Imgs[3], top: '0', left: '-30%', height: '100%'}
+  ])
+  const BannerWrapper = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+
+    if (firstRender === 1) {
+      const id = setInterval(() => {
+
+        const animation = new Animation(new KeyframeEffect(BannerWrapper.current, { left: '-100%' }, { duration: 1000, easing: 'cubic-bezier(0.22, 0.61, 0.36, 1)' }), document.timeline)
+  
+        animation.onfinish = () => {
+          const firstSlide = BannerWrapper.current?.children.item(1)
+          if (firstSlide) {
+            BannerWrapper.current?.removeChild(firstSlide)
+            BannerWrapper.current?.appendChild(firstSlide)
+          }
+        }
+        animation.play()
+        
+      }, 3000)
+      return () => clearInterval(id)
+    }
+
+    if (firstRender === 0) firstRender = 1
+  }, [])
+  
   const Theme = useTheme()
 
   return (
     <Main>
-      <div
+      <Stack ref={BannerWrapper} direction='row'
         style={{
           position: "absolute",
           top: 0,
-          width: "100%",
+          width: "400%",
           height: "100%",
+          overflow: 'hidden',
+          left: '0%'
         }}
       >
         <div style={{ position: 'absolute', width: '100%', height: '100%', background: 'rgba(3, 10, 35, 0.8)', top: 0 }} />
-        <img style={{ zIndex: -1, width: '100%', top: '-50%' }} src={Banner} />
-      </div>
+        {
+          // @ts-ignore
+          Banner.map(({id, url, top, left, width, height}) => (
+              <div key={id} style={{ width: '25%', height: '100%', overflow: 'hidden' }}>
+                <img style={{ zIndex: -1, top, left, width, height }} src={url} />
+              </div>
+          ))
+        }
+      </Stack>
       <Hero>
         <Box component='h1' sx={{
           /* @ts-ignore */
@@ -70,7 +113,7 @@ function HeroSection() {
           fontSize: 100,
         }}>Collect Your NFTs Here!</Box >
         <ExtendedButton>
-          <img src={Search} style={{height: '60%'}} />
+          <img src={Search} style={{ height: '60%' }} />
           <p>Find your NFT</p>
         </ExtendedButton>
       </Hero>
