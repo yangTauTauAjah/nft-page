@@ -110,7 +110,7 @@ function HeroSection() {
         }}>Collect Your NFTs Here!</Box >
         <ExtendedButton>
           <img src={Search} style={{ height: '60%' }} />
-          <p>Find your NFT</p>
+          <span>Find your NFT</span>
         </ExtendedButton>
       </Hero>
     </Main>
