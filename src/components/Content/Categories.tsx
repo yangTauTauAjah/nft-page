@@ -19,7 +19,13 @@ const Card = styled("div")(({theme}) => ({
   alignItems: "center",
   background: `linear-gradient(to bottom, ${theme.palette.primary.main}30 0%, ${theme.palette.primary.main}06 100%)`,
   padding: "20px",
-  borderRadius: "2rem"
+  transition: 'all 100ms ease-in-out',
+  borderRadius: "2rem",
+  cursor: 'pointer',
+  '&:hover': {
+    transform: 'scale(1.01)',
+    boxShadow: '0 0 50px rgba(34, 126, 255, 0.2)',
+  }
 }));
 
 function Categories() {
