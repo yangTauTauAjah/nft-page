@@ -6,7 +6,7 @@
 }
 
 :root {
-  font-family: 'Poppins', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Poppins", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   width: 100%;
@@ -39,6 +39,21 @@ body {
   /* min-width: 320px; */
   /* width: 100%; */
   min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a {
+  cursor: default;
+}
+
+a {
+  cursor: pointer;
 }
 
 /* h1 {
