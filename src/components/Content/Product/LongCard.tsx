@@ -14,7 +14,7 @@ const Card = styled("div")({
   borderRadius: "12px",
   alignItems: "center",
   padding: "20px",
-  width: "30.5vw",
+  width: "100%",
   aspectRatio: "3.142",
   fontSize: "1rem"
 });

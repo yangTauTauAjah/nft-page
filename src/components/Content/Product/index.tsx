@@ -24,7 +24,7 @@ function Product() {
   }, []);
 
   return (
-    <Stack gap={10} sx={{ width: "80vw", marginInline: "auto", color: 'white' }}>
+    <Stack gap={10} sx={{ width: "90%", marginInline: "auto", color: 'white' }}>
       <Auction ref={ref} />
       <TopSeller />
     </Stack>

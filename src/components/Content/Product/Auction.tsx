@@ -20,7 +20,7 @@ const BigCard = styled("div")({
   display: "flex",
   flexDirection: "column",
   justifyContent: "space-between",
-  width: "40vw",
+  width: "50%",
   aspectRatio: "0.674",
   padding: "40px"
 });
@@ -116,7 +116,7 @@ const Auction = forwardRef<HTMLHeadingElement>((props, ref) => {
           </Button>
         </div>
       </BigCard>
-      <div>
+      <div style={{ width: '40%'}}>
         <h3 style={{ fontSize: "2rem", marginBottom: "30px" }}>
           New Auction
         </h3>
